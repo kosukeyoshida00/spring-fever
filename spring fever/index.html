@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="Shift_JIS">
+<title>Spring Fever</title>
+
+<style>
+body {
+  background-color: #bfe8ef;
+  font-family: "MS PGothic", "Osaka", Arial, sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  width: 760px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 5px double #7fcad6;
+  padding: 12px;
+}
+
+/* ===== Header ===== */
+.header {
+  text-align: center;
+  background: linear-gradient(#eafcff, #cdeff5);
+  border: 2px solid #8fd3de;
+  padding: 18px 14px 14px;
+  margin-bottom: 10px;
+}
+
+/* ★ ロゴ画像 */
+.header .logo {
+  width: clamp(260px, 40vw, 420px);
+  height: auto;
+  display: block;
+  margin: 0 auto 6px;
+}
+
+/* ★ 点滅（元のチカチカ） */
+.blink {
+  font-size: 12px;
+  margin-top: 4px;
+  animation: blink 1s steps(1) infinite;
+  color: #ff5fa2;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* ===== Navigation ===== */
+.nav {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.nav a {
+  display: inline-block;
+  width: 120px;
+  padding: 6px 0;
+  margin: 0 4px;
+  background: #eafcff;
+  border: 2px outset #9adbe6;
+  color: #007a8c;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.nav a:hover {
+  border: 2px inset #9adbe6;
+}
+
+/* ===== Main ===== */
+.main {
+  display: flex;
+}
+
+.left {
+  width: 260px;
+  padding: 10px;
+  border: 2px dotted #9adbe6;
+  background: #f4fcfe;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.right {
+  flex: 1;
+  padding: 10px;
+  border: 2px dotted #9adbe6;
+  background: #f9feff;
+}
+
+/* ★ チケット文言 */
+.ticket {
+  font-size: 20px;
+  color: #ff5fa2;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* ★ 下の情報は左揃え */
+.info {
+  text-align: left;
+  line-height: 1.8;
+}
+
+/* ===== Footer ===== */
+.footer {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 12px;
+  color: #666666;
+}
+</style>
+</head>
+
+<body>
+
+<a id="top"></a>
+
+<div class="container">
+
+  <div class="header">
+    <img src="spring-fever-logo.png" alt="Spring Fever" class="logo">
+    <div class="blink">★ NEW ★　ロリータまたはセットアップで来場⇒¥500引き</div>
+  </div>
+
+  <div class="nav">
+    <a href="#top">TOP</a>
+    <a href="https://x.com/_____suko_____" target="_blank">PROFILE</a>
+    <a href="https://x.com/_____suko_____" target="_blank">INFO</a>
+    <a href="https://x.com/_____suko_____" target="_blank">LINK</a>
+  </div>
+
+  <div class="main">
+
+    <div class="left">
+      <p>■ MAIN VISUAL ■</p>
+      <img src="springfever_main.png" width="220" alt="main image">
+    </div>
+
+    <div class="right">
+
+      <div class="ticket">
+        チケット好評発売中！
+      </div>
+
+      <div class="info">
+        2026.03.22（sun）14:30 OPEN<br>
+        西荻窪 喫茶閃光 ticket ¥2,500-<br>
+        ご予約はDMへ　定員に達し次第受付終了！
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="footer">
+    © 2026 Spring Fever
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="Shift_JIS">
+<title>Spring Fever</title>
+
+<style>
+body {
+  background-color: #bfe8ef;
+  font-family: "MS PGothic", "Osaka", Arial, sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  width: 760px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 5px double #7fcad6;
+  padding: 12px;
+}
+
+/* ===== Header ===== */
+.header {
+  text-align: center;
+  background: linear-gradient(#eafcff, #cdeff5);
+  border: 2px solid #8fd3de;
+  padding: 18px 14px 14px;
+  margin-bottom: 10px;
+}
+
+.header .logo {
+  width: clamp(260px, 40vw, 420px);
+  height: auto;
+  display: block;
+  margin: 0 auto 8px;
+}
+
+/* ★ NEW ★ */
+.blink {
+  font-size: 18px;
+  margin-top: 6px;
+  animation: blink 1s steps(1) infinite;
+  color: #ff5fa2;
+  letter-spacing: 1px;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* ===== Navigation ===== */
+.nav {
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.nav a {
+  display: inline-block;
+  width: 180px;
+  padding: 8px 0;
+  margin: 0 6px;
+  background: #eafcff;
+  border: 2px outset #9adbe6;
+  color: #007a8c;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.nav a:hover {
+  border: 2px inset #9adbe6;
+}
+
+/* ===== Main ===== */
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.left, .right {
+  width: 100%;
+  padding: 10px;
+  border: 2px dotted #9adbe6;
+  background: #f4fcfe;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.left { margin-bottom: 10px; }
+.right { background: #f9feff; }
+
+/* ===== MAIN VISUAL ===== */
+.main-visual {
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto 8px;
+  overflow: hidden;
+  border: 2px solid #9adbe6;
+  background: #ffffff;
+}
+
+.main-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
+}
+
+/* ===== Image Modal ===== */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal img {
+  max-width: 95%;
+  max-height: 95%;
+  border: 3px solid #fff;
+  background: #fff;
+}
+
+/* チケット文言 */
+.ticket {
+  font-size: 28px;
+  color: #ff5fa2;
+  font-weight: bold;
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+/* 情報 */
+.info {
+  text-align: left;
+  line-height: 2.2;
+  font-size: 16px;
+  color: #ff6fae;
+  font-family: "Hiragino Maru Gothic Pro", "Rounded Mplus 1c", "MS PGothic", sans-serif;
+}
+
+/* ===== Footer ===== */
+.footer {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 12px;
+  color: #666;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <img src="spring-fever-logo.png" alt="Spring Fever" class="logo">
+    <div class="blink">★ NEW ★　ロリータまたはセットアップで来場⇒¥500引き</div>
+  </div>
+
+  <div class="nav">
+    <a href="https://x.com/_____suko_____" target="_blank">Twitter</a>
+    <a href="https://www.instagram.com/____suko____" target="_blank">Instagram</a>
+    <a href="https://www.instagram.com/senkou_kissa" target="_blank">喫茶閃光</a>
+  </div>
+
+  <div class="main">
+
+    <div class="left">
+      <div class="ticket">チケット好評発売中！</div>
+      <div class="info">
+        2026.03.22（日）<br>
+        14:30 開場/15:00開演<br>
+        場所：西荻窪 喫茶閃光　ticket ¥2,500-<br><br>
+        ↓↓ご予約↓↓<br>
+        sukoのTwitterまたはInstagramのDMへ<br>
+        定員に達し次第受付終了！(^O^)<br><br>
+
+♪sukoのソロ楽曲を演奏します♪<br>
+喫茶閃光でドリンク注文可能<br>
+（料金はチケットと別になります。）<br>
+      </div>
+    </div>
+
+    <div class="right">
+      <p>■ MAIN VISUAL ■</p>
+      <div class="main-visual">
+        <img src="springfever_main.png" alt="main image" id="mainImage">
+      </div>
+      <p style="font-size:13px;color:#666;">イラスト：ぱらぽっぷらふな</p>
+    </div>
+
+  </div>
+
+  <div class="footer">© 2026 Spring Fever</div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal" id="imageModal">
+  <img id="modalImage">
+</div>
+
+<script>
+  const img = document.getElementById('mainImage');
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImage');
+
+  img.onclick = () => {
+    modalImg.src = img.src;
+    modal.style.display = 'flex';
+  };
+
+  modal.onclick = () => {
+    modal.style.display = 'none';
+  };
+</script>
+
+</body>
+</html>
